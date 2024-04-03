@@ -1,0 +1,1 @@
+in cloud shell: gcc -o /home/nikkitox10/c_ideas/test_anwendungen/kompilierung.sh source_code.c
