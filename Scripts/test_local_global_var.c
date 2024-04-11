@@ -12,8 +12,9 @@ int main(){
     }
 
     int my_var;
+    printf("02 - Value of my_var is: %d\n", my_var);
     my_var = my_var + 10;
-    printf("02_Value of my_var is: %d\n", my_var);
+    printf("03 - Value of my_var is: %d\n", my_var);
 
     return 0;
 }
