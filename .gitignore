@@ -3,3 +3,4 @@ Exes
 .vscode
 usb_devs/usb_dev_list.exe
 usb_devs/usb_communication.exe
+usb_devs/pico_pi_communication.exe
