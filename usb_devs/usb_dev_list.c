@@ -71,27 +71,6 @@ int main(){
                         }
                     }
                     libusb_free_config_descriptor(config);
-                    if (libusb_kernel_driver_active(handle, INTERFACE_NUM) ==1){
-                        libusb_detach_kernel_driver(handle, INTERFACE_NUM);
-                        printf("Interface detached\n");
-                    }else{
-                        printf("Interface not possible to detach\n");
-                    }
-                    rr = libusb_claim_interface(handle, INTERFACE_NUM);
-                    if (rr == 0){
-                        printf("Communication established\n");
-                        uint8_t endpoint_out = 0x00;
-                        uint8_t data_out[64] = "1";
-                        int transferred;
-                        rrr = libusb_bulk_transfer(handle, endpoint_out, data_out, sizeof(data_out), &transferred, TIMEOUT);
-                        if ((rrr == 0) && (transferred == sizeof(data_out))){
-                            printf("Command delivered\n");
-                        }else{
-                            fprintf(stderr, "Error sending the data: %s\n", libusb_error_name(rrr));
-                        }
-                    }else{
-                        fprintf(stderr, "Cannot claim interface: (%d) %s\n", rr, libusb_error_name(rr));
-                    }
                     libusb_release_interface(handle, INTERFACE_NUM);
                     libusb_close(handle);
                 }else{
